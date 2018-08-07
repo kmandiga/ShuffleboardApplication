@@ -50,8 +50,8 @@ namespace ShuffleboardApplication.Controllers
                            where p.PlayerID == playerID
                            select p).FirstOrDefault();
 
-            ViewBag.ppg = (double)player1.CummulativePoints / (double)player1.gamesPlayed;
-            ViewBag.win = (double)player1.gamesWon / (double)player1.gamesPlayed;
+            ViewBag.ppg = (int)((double)player1.CummulativePoints / (double)player1.gamesPlayed);
+            ViewBag.win = (int)(((double)player1.gamesWon / (double)player1.gamesPlayed )* 100);
 
             return View(player1);
         }
