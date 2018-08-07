@@ -25,6 +25,8 @@ namespace ShuffleboardApplication.Models
         [Required]
         public int P2Score { get; set; }
 
+        public int margin { get; set; }
+
         //public ICollection<Game> PlayersInGame { get; set; }
 
     }

@@ -29,10 +29,10 @@
             @Html.ActionLink("Player 2", "Index", new { sortOrder = ViewBag.P2SortParm })
         </th>
         <th>
-            @Html.ActionLink("Score", "Index", new { sortOrder = ViewBag.ScoreSortParm })
+            @Html.DisplayName("Score")
         </th>
         <th>
-           
+            @Html.ActionLink("Margin of Victory", "Index", new { sortOrder = ViewBag.MOVSortParm })
         </th>
 
     </tr>
@@ -51,6 +51,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.P1Score) - @Html.DisplayFor(modelItem => item.P2Score)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.margin)
         </td>
         <td>
             <a href="@Url.Action("Delete", "Game", new { id = item.GameID}, null)" class="btn btn-danger">
