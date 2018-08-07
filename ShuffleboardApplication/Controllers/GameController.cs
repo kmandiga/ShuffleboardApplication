@@ -14,12 +14,44 @@ namespace ShuffleboardApplication.Controllers
     {
         private MyDBContext db = new MyDBContext();
 
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder)
         {
-            
+            ViewBag.DateSortParm = String.IsNullOrEmpty(sortOrder) ? "date_asc" : "";
+            ViewBag.P1SortParm = sortOrder == "P1_des" ? "P1_asc" : "P1_des";
+            ViewBag.P2SortParm = sortOrder == "P2_des" ? "P2_asc" : "P2_des";
+            ViewBag.ScoreSortParm = sortOrder == "Score_des" ? "Score_asc" : "Score_des";
+            var games = from g in db.Games
+                          select g;
+            switch(sortOrder)
+            {
+                case "date_asc":
+                    games = games.OrderBy(g => g.Date);
+                    break;
+                case "P1_des":
+                    games = games.OrderByDescending(g => g.P1);
+                    break;
+                case "P1_asc":
+                    games = games.OrderBy(g => g.P1);
+                    break;
+                case "P2_des":
+                    games = games.OrderByDescending(g => g.P2);
+                    break;
+                case "P2_asc":
+                    games = games.OrderBy(g => g.P2);
+                    break;
+                case "Score_des":
+                    games = games.OrderByDescending(g => g.P1Score);
+                    break;
+                case "Score_asc":
+                    games = games.OrderBy(g => g.P1Score);
+                    break;
+                default:
+                    games = games.OrderByDescending(g => g.Date);
+                    break;
+            }
 
 
-            return View(db.Games.ToList());
+            return View(games.ToList());
         }
         public ActionResult Create()
         {

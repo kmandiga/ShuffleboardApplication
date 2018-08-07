@@ -20,16 +20,19 @@
 <table class="table" id="gamesTable">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Date)
+            @Html.ActionLink("Date", "Index", new { sortOrder = ViewBag.DateSortParm})
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.P1)
+            @Html.ActionLink("Player 1", "Index", new { sortOrder = ViewBag.P1SortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.P2)
+            @Html.ActionLink("Player 2", "Index", new { sortOrder = ViewBag.P2SortParm })
         </th>
         <th>
-            @Html.DisplayName("Score")
+            @Html.ActionLink("Score", "Index", new { sortOrder = ViewBag.ScoreSortParm })
+        </th>
+        <th>
+           
         </th>
 
     </tr>
@@ -50,9 +53,10 @@
             @Html.DisplayFor(modelItem => item.P1Score) - @Html.DisplayFor(modelItem => item.P2Score)
         </td>
         <td>
-            @Html.ActionLink("Details", "Index", new { id = item.GameID })
+            <a href="@Url.Action("Delete", "Game", new { id = item.GameID}, null)" class="btn btn-danger">
+                <i class="fas fa-trash"></i>
+            </a>
 
-            @Html.ActionLink("Delete", "Delete", "Game", new { id = item.GameID }, null)
         </td>
     </tr>
     }
