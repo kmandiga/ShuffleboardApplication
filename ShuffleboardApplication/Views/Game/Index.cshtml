@@ -53,7 +53,6 @@
             @Html.DisplayFor(modelItem => item.P1Score) - @Html.DisplayFor(modelItem => item.P2Score)
         </td>
         <td>
-            @Html.ActionLink("Delete", "Delete", "Game", new { id = item.GameID }, null)
             <a href="@Url.Action("Delete", "Game", new { id = item.GameID}, null)" class="btn btn-danger">
                 <i class="fas fa-trash"></i>
             </a>
