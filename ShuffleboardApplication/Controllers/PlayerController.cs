@@ -34,5 +34,14 @@ namespace ShuffleboardApplication.Controllers
             }
             return View(p);
         }
+        [HttpPost]
+        public JsonResult UsernameAvailable(string Username)
+        {
+            var player1 = (from p in db.Players
+                           where p.Username == Username
+                           select p).FirstOrDefault();
+            return Json(player1 == null);
+        }
+
     }
 }

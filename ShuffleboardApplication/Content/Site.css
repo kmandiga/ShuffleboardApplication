@@ -31,3 +31,6 @@ textarea {
 .navbar-nav .nav-item .nav-link {
     color: white;
 }
+.form-group div.error {
+    color: red;
+}
