@@ -1,0 +1,51 @@
+﻿@model ShuffleboardApplication.Models.Player
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gamesPlayed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gamesWon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CummulativePoints)
+        </th>
+        <th>
+            PPG
+        </th>
+        <th>
+            Win %
+        </th>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(model => Model.Username)
+        </td>
+        <td>
+            @Html.DisplayFor(model => Model.gamesPlayed)
+        </td>
+        <td>
+            @Html.DisplayFor(model => Model.gamesWon)
+        </td>
+        <td>
+            @Html.DisplayFor(model => Model.CummulativePoints)
+        </td>
+        <td>
+            @ViewBag.ppg
+        </td>
+        <td>
+            @ViewBag.win
+        </td>
+    </tr>
+</table>

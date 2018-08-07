@@ -10,7 +10,7 @@ namespace ShuffleboardApplication.Controllers
     public class PlayerController : Controller
     {
         private MyDBContext db = new MyDBContext();
-                                                    
+
         public ActionResult Index()
         {
             return View(db.Players.ToList());
@@ -43,5 +43,17 @@ namespace ShuffleboardApplication.Controllers
             return Json(player1 == null);
         }
 
+        public ActionResult Details(int? playerID)
+        {
+
+            var player1 = (from p in db.Players
+                           where p.PlayerID == playerID
+                           select p).FirstOrDefault();
+
+            ViewBag.ppg = (double)player1.CummulativePoints / (double)player1.gamesPlayed;
+            ViewBag.win = (double)player1.gamesWon / (double)player1.gamesPlayed;
+
+            return View(player1);
+        }
     }
 }
