@@ -1,0 +1,58 @@
+﻿@model IEnumerable<ShuffleboardApplication.Models.Game>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.P1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.P2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.P1Score)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.P2Score)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.P1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.P2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.P1Score)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.P2Score)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.GameID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.GameID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.GameID })
+        </td>
+    </tr>
+}
+
+</table>
