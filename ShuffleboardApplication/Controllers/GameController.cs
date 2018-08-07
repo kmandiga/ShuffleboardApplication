@@ -15,6 +15,9 @@ namespace ShuffleboardApplication.Controllers
 
         public ActionResult Index()
         {
+            
+
+
             return View(db.Games.ToList());
         }
         public ActionResult Create()
