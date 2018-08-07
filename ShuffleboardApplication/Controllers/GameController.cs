@@ -7,7 +7,6 @@ using System.Data.Entity;
 using ShuffleboardApplication.Models;
 using System.Diagnostics;
 using System.Net;
-
 namespace ShuffleboardApplication.Controllers
 {
     public class GameController : Controller
@@ -19,10 +18,10 @@ namespace ShuffleboardApplication.Controllers
             ViewBag.DateSortParm = String.IsNullOrEmpty(sortOrder) ? "date_asc" : "";
             ViewBag.P1SortParm = sortOrder == "P1_des" ? "P1_asc" : "P1_des";
             ViewBag.P2SortParm = sortOrder == "P2_des" ? "P2_asc" : "P2_des";
-            ViewBag.ScoreSortParm = sortOrder == "Score_des" ? "Score_asc" : "Score_des";
+            ViewBag.MOVSortParm = sortOrder == "mov_des" ? "mov_asc" : "mov_des";
             var games = from g in db.Games
                           select g;
-            switch(sortOrder)
+            switch (sortOrder)
             {
                 case "date_asc":
                     games = games.OrderBy(g => g.Date);
@@ -39,18 +38,16 @@ namespace ShuffleboardApplication.Controllers
                 case "P2_asc":
                     games = games.OrderBy(g => g.P2);
                     break;
-                case "Score_des":
-                    games = games.OrderByDescending(g => g.P1Score);
+                case "mov_des":
+                    games = games.OrderByDescending(g => g.margin);
                     break;
-                case "Score_asc":
-                    games = games.OrderBy(g => g.P1Score);
+                case "mov_asc":
+                    games = games.OrderBy(g => g.margin);
                     break;
                 default:
                     games = games.OrderByDescending(g => g.Date);
                     break;
             }
-
-
             return View(games.ToList());
         }
         public ActionResult Create()
@@ -65,7 +62,7 @@ namespace ShuffleboardApplication.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "P1, P1Score, P2, P2Score")] Game game)
         {
-
+            game.margin = Math.Abs(game.P1Score - game.P2Score);
             game.Date = DateTime.Now;
             Trace.WriteLine("POST /Game/Create");
             if (ModelState.IsValid)
