@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ShuffleboardApplication.Models.Player>
+
+
+@{
+    ViewBag.title = "Index";
+}
+
+<h2>Players</h2>
+
+<p>
+    @Html.ActionLink("Add New Player", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gamesPlayed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gamesWon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CummulativePoints)
+        </th>
+    </tr>
+@foreach(var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gamesPlayed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gamesWon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CummulativePoints)
+        </td>
+    </tr>
+}
+</table>
