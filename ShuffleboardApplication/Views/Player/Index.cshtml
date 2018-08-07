@@ -13,16 +13,16 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Username)
+            @Html.ActionLink("Username", "Index", new { sortOrder = ViewBag.UsernameSortParm})
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.gamesPlayed)
+            @Html.ActionLink("# of Games Won", "Index", new { sortOrder = ViewBag.gamesWon })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.gamesWon)
+            @Html.ActionLink("# of Games Played", "Index", new { sortOrder = ViewBag.gamesPlayed })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CummulativePoints)
+            
         </th>
     </tr>
 @foreach(var item in Model)
@@ -32,13 +32,10 @@
             @Html.ActionLink(item.Username, "Details", "Player", new { playerID = item.PlayerID}, null)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.gamesPlayed)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.gamesWon)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.CummulativePoints)
+            @Html.DisplayFor(modelItem => item.gamesPlayed)
         </td>
     </tr>
 }
