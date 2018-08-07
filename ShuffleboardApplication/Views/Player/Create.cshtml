@@ -19,10 +19,19 @@
         <div class="form-group">
             <div class="col-md-10">
                 @Html.TextBox("FirstName", null, new { @class = "form-control", @placeholder = "First Name" })
+                <div class="error">
+                    @Html.ValidationMessageFor(model => model.FirstName)
+                </div>
                 <p></p>
                 @Html.TextBox("LastName", null, new { @class = "form-control", @placeholder = "Last Name" })
+                <div class="error">
+                    @Html.ValidationMessageFor(model => model.LastName)
+                </div>
                 <p></p>
                 @Html.TextBox("Username", null, new { @class = "form-control", @placeholder = "Username" })
+                <div class="error">
+                    @Html.ValidationMessageFor(model => model.Username)
+                </div>
             </div>
         </div>
     </div>
