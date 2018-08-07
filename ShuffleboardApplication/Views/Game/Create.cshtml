@@ -20,14 +20,23 @@
                 <!-- change the width of player score editor for perhaps by changing width in css or something-->
                 @*@Html.TextBox("P1", null, new { @class = "form-control", @placeholder = "Player 1 Username" })*@
                 @Html.DropDownList("P1", (IEnumerable<SelectListItem>)ViewBag.PlayersList, null, new { @class = "form-control" })
-
+                <div class="error">
+                    @Html.ValidationMessageFor(model => model.P1)
+                </div>
                 @Html.EditorFor(Model => Model.P1Score, new { htmlAttributes = new { @class = "form-control", @placeholder = "P1 Score" } })
-
+                <div class="error">
+                    @Html.ValidationMessageFor(model => model.P1Score)
+                </div>
                 <p></p>
                 @*@Html.TextBox("P2", null, new { @class = "form-control", @placeholder = "Player 2 Username" })*@
                 @Html.DropDownList("P2", (IEnumerable<SelectListItem>)ViewBag.PlayersList, null, new { @class = "form-control" })
+                <div class="error">
+                    @Html.ValidationMessageFor(model => model.P2)
+                </div>
                 @Html.EditorFor(Model => Model.P2Score, new { htmlAttributes = new { @class = "form-control", @placeholder = "P2 Score" } })
-
+                <div class="error">
+                    @Html.ValidationMessageFor(model => model.P2Score)
+                </div>
                 <p></p>
                 @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
 

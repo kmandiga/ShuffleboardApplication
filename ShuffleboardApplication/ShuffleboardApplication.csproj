@@ -185,6 +185,10 @@
     <Compile Include="Migrations\201808071545076_wolverine.Designer.cs">
       <DependentUpon>201808071545076_wolverine.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808071636096_wolverine2.cs" />
+    <Compile Include="Migrations\201808071636096_wolverine2.Designer.cs">
+      <DependentUpon>201808071636096_wolverine2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Game.cs" />
     <Compile Include="Models\MyDBContext.cs" />
@@ -300,6 +304,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808071545076_wolverine.resx">
       <DependentUpon>201808071545076_wolverine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808071636096_wolverine2.resx">
+      <DependentUpon>201808071636096_wolverine2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
