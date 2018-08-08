@@ -24,12 +24,24 @@ textarea {
 }
 
 .nav-item:hover {
-    background: rgb(0, 100, 170);
+    background: rgb(0, 255, 127);
     color: white;
 }
-
+.nav-link:hover {
+    background: rgb(0, 255, 127);
+    width: 100%;
+}
 .navbar-nav .nav-item .nav-link {
     color: white;
+}
+.nav-link {
+    
+    width:100%;
+}
+.navbar fixed-top navbar-light{
+    margin:0px;
+    border:0px;
+    padding:0;
 }
 .form-group div.error {
     color: red;
