@@ -4,6 +4,7 @@ using System.Data.Entity;
 using ShuffleboardApplication.Models;
 using System.Diagnostics;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace ShuffleboardApplication.Controllers
 {
@@ -80,9 +81,23 @@ namespace ShuffleboardApplication.Controllers
                            where p.PlayerID == playerID
                            select p).FirstOrDefault();
 
-            ViewBag.ppg = (int)((double)player1.CummulativePoints / (double)player1.gamesPlayed);
-            ViewBag.win = (int)(((double)player1.gamesWon / (double)player1.gamesPlayed )* 100);
+            
+            if (player1.gamesPlayed > 0)
+            {
+                ViewBag.ppg = (int)((double)player1.CummulativePoints / (double)player1.gamesPlayed);
+                ViewBag.win = (int)(((double)player1.gamesWon / (double)player1.gamesPlayed) * 100);
+            }
+            {
+                ViewBag.ppg = 0;
+                ViewBag.win = 0;
+            }
 
+            
+            var gameList = (from g in db.Games
+                        where g.P1 == player1.Username || g.P2 == player1.Username
+                        select g).ToList();
+
+            ViewBag.ListGames = gameList;
             return View(player1);
         }
     }
