@@ -76,7 +76,10 @@ namespace ShuffleboardApplication.Controllers
 
         public ActionResult Details(int? playerID)
         {
-
+            if(playerID == null)
+            {
+                return RedirectToAction("Index");
+            }
             var player1 = (from p in db.Players
                            where p.PlayerID == playerID
                            select p).FirstOrDefault();
@@ -87,6 +90,7 @@ namespace ShuffleboardApplication.Controllers
                 ViewBag.ppg = (int)((double)player1.CummulativePoints / (double)player1.gamesPlayed);
                 ViewBag.win = (int)(((double)player1.gamesWon / (double)player1.gamesPlayed) * 100);
             }
+            else
             {
                 ViewBag.ppg = 0;
                 ViewBag.win = 0;
@@ -96,7 +100,7 @@ namespace ShuffleboardApplication.Controllers
             var gameList = (from g in db.Games
                         where g.P1 == player1.Username || g.P2 == player1.Username
                         select g).ToList();
-
+            
             ViewBag.ListGames = gameList;
             return View(player1);
         }

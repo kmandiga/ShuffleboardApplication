@@ -10,7 +10,7 @@
     <script src="~/Content/bootstrap.css"></script>
 </head>
 <body>
-    <nav class="navbar fixed-top navbar-light" style="background-color: rgb(0, 205, 102); padding: 0px;">
+    <nav class="navbar fixed-top navbar-light" style="background-color: rgb(0, 205, 102); padding-top: 10px; padding-bottom:5px; padding-right: 0px; padding-left: 0px; ">
         <a class="navbar-brand" href="/Game/Index">Shuffleboard Application</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,10 +23,14 @@
                     @Html.ActionLink("Submit a Game", "Create", "Game", null, new { @class = "nav-link" })
                 </li>
                 <li class="nav-item">
+                    <!--<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>-->
+                    @Html.ActionLink("Create a Player", "Create", "Player", null, new { @class = "nav-link" })
+                </li>
+                <li class="nav-item">
                     @Html.ActionLink("View Leaderboard", "Index", "Player", null, new { @class = "nav-link" })
                 </li>
                 <li class="nav-item">
-                    @Html.ActionLink("View Tournaments", "Index", "Tournament", null, new { @class = "nav-link"})
+                    @Html.ActionLink("View Tournaments", "Index", "Tournament", null, new { @class = "nav-link" })
                 </li>
                 <li class="nav-item">
 

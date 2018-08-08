@@ -13,13 +13,13 @@
             @Html.DisplayNameFor(model => model.Username)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.gamesPlayed)
+            Games
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.gamesWon)
+            Wins
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CummulativePoints)
+            Total Points
         </th>
         <th>
             PPG
@@ -68,7 +68,7 @@
         </th>
        
         <th>
-            @Html.Label("Margin of Victory")
+            @Html.Label("Point Differential")
 
         </th>
         <th></th>
@@ -77,27 +77,56 @@
 
     @foreach (var item in ViewBag.ListGames)
     {
-        <tr>
-            <td>
-                @item.Date
+    <tr>
+        <td>
+            @item.Date
 
-            </td>
+        </td>
 
-            <td>
-                @item.P1
-            </td>
-            <td>
-                @item.P2
-            </td>
-            <td>
-                @item.P1Score -  @item.P2Score
-            </td>
-            
-            <td>
-               @item.margin
+        <td>
+            @item.P1
+        </td>
+        <td>
+            @item.P2
+        </td>
+        <td>
+            @item.P1Score- @item.P2Score
 
-            </td>
-        </tr>
+        </td>
+
+        @if (Model.Username == item.P1)
+        {
+
+            if ((item.P1Score - item.P2Score) < 0)
+            {
+                <td style="background-color:rgb(238,44,44); color:white; ">@(item.P1Score - item.P2Score)</td>
+            }
+            else
+            {
+                <td style="background-color:rgb(50,205,44); color:white; ">+@(item.P1Score - item.P2Score)</td>
+            }
+        }
+        else
+        {
+            if ((item.P2Score - item.P1Score) < 0)
+            {
+                <td style="background-color:rgb(238,44,44); color:white;">@(item.P2Score - item.P1Score)</td>
+            }
+            else
+            {
+                <td style="background-color:rgb(50,205,44); color:white;">+@(item.P2Score - item.P1Score)</td>
+            }
+        }
+
+
+
+
+
+    </tr>
     }
 
 </table>
+
+<div>
+    @Html.ActionLink("Back to Players Page", "Index")
+</div>
