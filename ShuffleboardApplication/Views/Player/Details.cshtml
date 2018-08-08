@@ -49,3 +49,55 @@
         </td>
     </tr>
 </table>
+
+<table class="table" id="gamesTable">
+    <tr>
+        <th>
+            @Html.Label("Date")
+        </th>
+        <th>
+            @Html.Label("Player 1")
+        </th>
+        <th>
+            @Html.Label("Player 2")
+
+        </th>
+        <th>
+            @Html.Label("Score")
+
+        </th>
+       
+        <th>
+            @Html.Label("Margin of Victory")
+
+        </th>
+        <th></th>
+
+    </tr>
+
+    @foreach (var item in ViewBag.ListGames)
+    {
+        <tr>
+            <td>
+                @item.Date
+
+            </td>
+
+            <td>
+                @item.P1
+            </td>
+            <td>
+                @item.P2
+            </td>
+            <td>
+                @item.P1Score -  @item.P2Score
+            </td>
+            
+            <td>
+               @item.margin
+
+            </td>
+        </tr>
+    }
+
+</table>

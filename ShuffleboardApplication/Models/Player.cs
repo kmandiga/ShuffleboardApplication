@@ -30,6 +30,8 @@ namespace ShuffleboardApplication.Models
         public int gamesWon { get; set; }
         
         public int CummulativePoints { get; set; }
+
+        //public List<int> gamesPlayedIn { get; set; }
     }
     
 }

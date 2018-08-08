@@ -199,13 +199,9 @@
     <Compile Include="Migrations\201808072036049_wlvrne4.Designer.cs">
       <DependentUpon>201808072036049_wlvrne4.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808081539101_A.cs" />
-    <Compile Include="Migrations\201808081539101_A.Designer.cs">
-      <DependentUpon>201808081539101_A.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808081555490_B.cs" />
-    <Compile Include="Migrations\201808081555490_B.Designer.cs">
-      <DependentUpon>201808081555490_B.cs</DependentUpon>
+    <Compile Include="Migrations\201808081441533_loganmig6.cs" />
+    <Compile Include="Migrations\201808081441533_loganmig6.Designer.cs">
+      <DependentUpon>201808081441533_loganmig6.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Game.cs" />
@@ -344,11 +340,8 @@
     <EmbeddedResource Include="Migrations\201808072036049_wlvrne4.resx">
       <DependentUpon>201808072036049_wlvrne4.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808081539101_A.resx">
-      <DependentUpon>201808081539101_A.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808081555490_B.resx">
-      <DependentUpon>201808081555490_B.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808081441533_loganmig6.resx">
+      <DependentUpon>201808081441533_loganmig6.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

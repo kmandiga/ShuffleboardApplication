@@ -78,6 +78,7 @@ namespace ShuffleboardApplication.Controllers
                                select p).FirstOrDefault();
 
                 //here is where you figure out winner 
+                
                 player1.gamesPlayed++;
                 player2.gamesPlayed++;
                 player1.CummulativePoints += game.P1Score;
