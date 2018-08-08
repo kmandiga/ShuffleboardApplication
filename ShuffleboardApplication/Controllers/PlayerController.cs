@@ -11,9 +11,39 @@ namespace ShuffleboardApplication.Controllers
     {
         private MyDBContext db = new MyDBContext();
 
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder)
         {
-            return View(db.Players.ToList());
+            ViewBag.gamesWon = string.IsNullOrEmpty(sortOrder) ? "gamesWon_asc" : "";
+            ViewBag.UsernameSortParm = sortOrder == "user_des" ? "user_asc" : "user_des";
+            ViewBag.gamesPlayed = sortOrder == "numplayed_des" ? "numplayed_asc" : "numplayed_des";
+            
+
+            var players = from p in db.Players
+                          select p;
+
+            switch(sortOrder)
+            {
+                case "user_asc":
+                    players = players.OrderBy(p => p.Username);
+                    break;
+                case "user_des":
+                    players = players.OrderByDescending(p => p.Username);
+                    break;
+                case "numplayed_asc":
+                    players = players.OrderBy(p => p.gamesPlayed);
+                    break;
+                case "numplayed_des":
+                    players = players.OrderByDescending(p => p.gamesPlayed);
+                    break;
+                case "gamesWon_asc":
+                    players = players.OrderBy(p => p.gamesWon);
+                    break;
+                default:
+                    players = players.OrderByDescending(p => p.gamesWon);
+                    break;
+            }
+
+            return View(players.ToList());
         }
         public ActionResult Create()
         {
