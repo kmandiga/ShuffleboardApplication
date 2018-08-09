@@ -12,6 +12,5 @@ namespace ShuffleboardApplication.Models
         public string TournamentName { get; set; }
         public List<Player> PlayersInTournament { get; set; }
         public List<Game> GamesInTournament { get; set; }
-
     }
 }
