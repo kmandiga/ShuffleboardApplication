@@ -6,127 +6,127 @@
 
 <h2>Details</h2>
 
+<div class="table-responsive">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th>
+                Games
+            </th>
+            <th>
+                Wins
+            </th>
+            <th>
+                Total Points
+            </th>
+            <th>
+                PPG
+            </th>
+            <th>
+                Win %
+            </th>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(model => Model.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(model => Model.gamesPlayed)
+            </td>
+            <td>
+                @Html.DisplayFor(model => Model.gamesWon)
+            </td>
+            <td>
+                @Html.DisplayFor(model => Model.CummulativePoints)
+            </td>
+            <td>
+                @ViewBag.ppg
+            </td>
+            <td>
+                @ViewBag.win
+            </td>
+        </tr>
+    </table>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Username)
-        </th>
-        <th>
-            Games
-        </th>
-        <th>
-            Wins
-        </th>
-        <th>
-            Total Points
-        </th>
-        <th>
-            PPG
-        </th>
-        <th>
-            Win %
-        </th>
-    </tr>
-    <tr>
-        <td>
-            @Html.DisplayFor(model => Model.Username)
-        </td>
-        <td>
-            @Html.DisplayFor(model => Model.gamesPlayed)
-        </td>
-        <td>
-            @Html.DisplayFor(model => Model.gamesWon)
-        </td>
-        <td>
-            @Html.DisplayFor(model => Model.CummulativePoints)
-        </td>
-        <td>
-            @ViewBag.ppg
-        </td>
-        <td>
-            @ViewBag.win
-        </td>
-    </tr>
-</table>
+    <table class="table" id="gamesTable">
+        <tr>
+            <th>
+                @Html.Label("Date")
+            </th>
+            <th>
+                @Html.Label("Player 1")
+            </th>
+            <th>
+                @Html.Label("Player 2")
 
-<table class="table" id="gamesTable">
-    <tr>
-        <th>
-            @Html.Label("Date")
-        </th>
-        <th>
-            @Html.Label("Player 1")
-        </th>
-        <th>
-            @Html.Label("Player 2")
+            </th>
+            <th>
+                @Html.Label("Score")
 
-        </th>
-        <th>
-            @Html.Label("Score")
+            </th>
 
-        </th>
-       
-        <th>
-            @Html.Label("Point Differential")
+            <th>
+                @Html.Label("Point Differential")
 
-        </th>
-        <th></th>
+            </th>
+            <th></th>
 
-    </tr>
+        </tr>
 
-    @foreach (var item in ViewBag.ListGames)
-    {
-    <tr>
-        <td>
-            @item.Date
-
-        </td>
-
-        <td>
-            @item.P1
-        </td>
-        <td>
-            @item.P2
-        </td>
-        <td>
-            @item.P1Score- @item.P2Score
-
-        </td>
-
-        @if (Model.Username == item.P1)
+        @foreach (var item in ViewBag.ListGames)
         {
+            <tr>
+                <td>
+                    @item.Date
 
-            if ((item.P1Score - item.P2Score) < 0)
-            {
-                <td style="background-color:rgb(238,44,44); color:white; ">@(item.P1Score - item.P2Score)</td>
-            }
-            else
-            {
-                <td style="background-color:rgb(50,205,44); color:white; ">+@(item.P1Score - item.P2Score)</td>
-            }
+                </td>
+
+                <td>
+                    @item.P1
+                </td>
+                <td>
+                    @item.P2
+                </td>
+                <td>
+                    @item.P1Score- @item.P2Score
+
+                </td>
+
+                @if (Model.Username == item.P1)
+                {
+
+                    if ((item.P1Score - item.P2Score) < 0)
+                    {
+                        <td style="background-color:rgb(238,44,44); color:white; ">@(item.P1Score - item.P2Score)</td>
+                    }
+                    else
+                    {
+                        <td style="background-color:rgb(50,205,44); color:white; ">+@(item.P1Score - item.P2Score)</td>
+                    }
+                }
+                else
+                {
+                    if ((item.P2Score - item.P1Score) < 0)
+                    {
+                        <td style="background-color:rgb(238,44,44); color:white;">@(item.P2Score - item.P1Score)</td>
+                    }
+                    else
+                    {
+                        <td style="background-color:rgb(50,205,44); color:white;">+@(item.P2Score - item.P1Score)</td>
+                    }
+                }
+
+
+
+
+
+            </tr>
         }
-        else
-        {
-            if ((item.P2Score - item.P1Score) < 0)
-            {
-                <td style="background-color:rgb(238,44,44); color:white;">@(item.P2Score - item.P1Score)</td>
-            }
-            else
-            {
-                <td style="background-color:rgb(50,205,44); color:white;">+@(item.P2Score - item.P1Score)</td>
-            }
-        }
 
-
-
-
-
-    </tr>
-    }
-
-</table>
-
-<div>
-    @Html.ActionLink("Back to Players Page", "Index")
+    </table>
 </div>
+    <div>
+        @Html.ActionLink("Back to Players Page", "Index")
+    </div>
