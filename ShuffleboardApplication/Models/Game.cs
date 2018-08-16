@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace ShuffleboardApplication.Models
 {
@@ -10,10 +11,11 @@ namespace ShuffleboardApplication.Models
     {
         public int GameID { get; set; }
         public DateTime Date { get; set; }
-
+        
         [Required]
         public string P1 { get; set; }
 
+        [Remote("duplicateUsername", "Game", AdditionalFields = "P1", HttpMethod = "POST", ErrorMessage = "Hello! You messed up!")]
         [Required]
         public string P2 { get; set; }
 

@@ -20,7 +20,7 @@ namespace ShuffleboardApplication.Controllers
         }
         public ActionResult Create()
         {
-            ViewBag.PlayersList = new SelectList(db.Players, "Username", "Username");
+            ViewBag.PlayerList = new SelectList(db.Players, "Username", "Username");
             return View();
         }
 

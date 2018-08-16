@@ -62,9 +62,12 @@ namespace ShuffleboardApplication.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "P1, P1Score, P2, P2Score")] Game game)
         {
+            
             game.margin = Math.Abs(game.P1Score - game.P2Score);
             game.Date = DateTime.Now;
             Trace.WriteLine("POST /Game/Create");
+            
+            
             if (ModelState.IsValid)
             {
                 db.Games.Add(game);
@@ -138,5 +141,18 @@ namespace ShuffleboardApplication.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        [HttpPost]
+        public JsonResult duplicateUsername(string P2, string P1)
+        {
+            bool something = P2.Equals(P1);
+            something = !something;
+            return Json(something);
+            
+        }
+
+       
+
+
     }
+
 }

@@ -19,7 +19,7 @@
 
                 <!-- change the width of player score editor for perhaps by changing width in css or something-->
                 @*@Html.TextBox("P1", null, new { @class = "form-control", @placeholder = "Player 1 Username" })*@
-                @Html.DropDownList("P1", (IEnumerable<SelectListItem>)ViewBag.PlayersList, "Select Player 1", new { @class = "form-control"})
+                @Html.DropDownList("P1", (IEnumerable<SelectListItem>)ViewBag.PlayersList, "Select Player 1", new { @class = "form-control" })
                 <div class="error">
                     @Html.ValidationMessageFor(model => model.P1)
                 </div>

@@ -9,6 +9,7 @@ namespace ShuffleboardApplication.Models
     {
         public int TournamentID { get; set; }
         public DateTime DateCreated { get; set; }
+        public int numPlayers { get; set; }
         public string TournamentName { get; set; }
         public List<Player> PlayersInTournament { get; set; }
         public List<Game> GamesInTournament { get; set; }
