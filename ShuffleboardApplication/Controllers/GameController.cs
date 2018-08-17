@@ -106,6 +106,19 @@ namespace ShuffleboardApplication.Controllers
             }
             return View(game);
         }
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Game game = db.Games.Find(id);
+            if (game == null)
+            {
+                return HttpNotFound();
+            }
+            return View(game);
+        }
 
         // POST: Games/Delete/5
         public ActionResult Delete(int id)
