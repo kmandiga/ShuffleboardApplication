@@ -32,6 +32,9 @@ namespace ShuffleboardApplication.Models
         public int CummulativePoints { get; set; }
 
         //public List<int> gamesPlayedIn { get; set; }
+
+        public virtual List<Tournament> Tournaments { get; set; }
+        public virtual List<Game> Games { get; set; }
     }
     
 }

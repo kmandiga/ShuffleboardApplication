@@ -12,11 +12,11 @@ namespace ShuffleboardApplication.Models
     {
         public DbSet<Game> Games { get; set; }
         public DbSet<Player> Players { get; set; }
-
+        public DbSet<Tournament> Tournaments { get; set; }
         public MyDBContext() : base("MyDBConnection")
         {
             
         }
-        
+
     }
 }

@@ -7,89 +7,106 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken();
+    @Html.HiddenFor(model => model.DateCreated)
 
-    <div class="form-horizontal">
-        <h4>Tournament</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger"})
-        <div class="form-group">
-            <div class="col-md-10">
-                @Html.TextBox("TournamentName", null, new { @class = "form-control", @placeholder = "Tournament Name" })
-                <hr />
-                Number of Players in Tournament
+<div class="form-horizontal">
+    <h4>Tournament</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        <div class="col-md-10">
+            @Html.TextBox("TournamentName", null, new { @class = "form-control", @placeholder = "Tournament Name" })
+            <hr />
+            Number of Players in Tournament
 
-                <div ng-app="">
-                    <select ng-model="name">
-                        <option value="4">4</option>
-                        <option value="8">8</option>
-                        <option value="16">16</option>
-                        <option value="32">32</option>
-                    </select>
+            <div ng-app="">
+                <select ng-model="name" name="numPlayers">
+                    <option value="4">4</option>
+                    <option value="8">8</option>
+                    <option value="16">16</option>
+                    <option value="32">32</option>
+                </select>
 
 
 
-                    <div ng-if="name == 4">
-                        <div class="form-group">
-                            <div class="col-md-10">
-                                <p></p>
-                                <!-- change the width of player score editor for perhaps by changing width in css or something-->
-                                @*@Html.TextBox("P1", null, new { @class = "form-control", @placeholder = "Player 1 Username" })*@
-                                @Html.DropDownList("P1", (IEnumerable<SelectListItem>)ViewBag.PlayerList, "Select Player 1", new { @class = "form-control" })
-                                <p></p>
-                                @*@Html.TextBox("P2", null, new { @class = "form-control", @placeholder = "Player 2 Username" })*@
-                                @Html.DropDownList("P2", (IEnumerable<SelectListItem>)ViewBag.PlayerList, "Select Player 2", new { @class = "form-control" })
+                <div ng-if="name == 4">
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <p></p>
+                            <!-- change the width of player score editor for perhaps by changing width in css or something-->
+                            @*@Html.TextBox("P1", null, new { @class = "form-control", @placeholder = "Player 1 Username" })*@
+                            @Html.DropDownList("P1", (IEnumerable<SelectListItem>)ViewBag.PlayerList, "Select Player 1", new { @class = "form-control" })
+                            <p></p>
+                            @*@Html.TextBox("P2", null, new { @class = "form-control", @placeholder = "Player 2 Username" })*@
+                            @Html.DropDownList("P2", (IEnumerable<SelectListItem>)ViewBag.PlayerList, "Select Player 2", new { @class = "form-control" })
 
-                                <p></p>
-                                @Html.DropDownList("P3", (IEnumerable<SelectListItem>)ViewBag.PlayerList, "Select Player 3", new { @class = "form-control" })
+                            <p></p>
+                            @Html.DropDownList("P3", (IEnumerable<SelectListItem>)ViewBag.PlayerList, "Select Player 3", new { @class = "form-control" })
 
-                                <p></p>
-                                @*@Html.TextBox("P4", null, new { @class = "form-control", @placeholder = "Player 2 Username" })*@
-                                @Html.DropDownList("P4", (IEnumerable<SelectListItem>)ViewBag.PlayerList, "Select Player 4", new { @class = "form-control" })
-                            </div>
+                            <p></p>
+                            @*@Html.TextBox("P4", null, new { @class = "form-control", @placeholder = "Player 2 Username" })*@
+                            @Html.DropDownList("P4", (IEnumerable<SelectListItem>)ViewBag.PlayerList, "Select Player 4", new { @class = "form-control" })
                         </div>
                     </div>
-
-                    <div ng-if="name == 8">
-                        <div class="form-group">
-                            <div class="col-md-10">
-
-                                <!-- change the width of player score editor for perhaps by changing width in css or something-->
-                                @*@Html.TextBox("P1", null, new { @class = "form-control", @placeholder = "Player 1 Username" })*@
-                                @Html.DropDownList("P1", (IEnumerable<SelectListItem>)ViewBag.PlayerList, "Select Player 1", new { @class = "form-control" })
-                                <p></p>
-                                @*@Html.TextBox("P2", null, new { @class = "form-control", @placeholder = "Player 2 Username" })*@
-                                @Html.DropDownList("P2", (IEnumerable<SelectListItem>)ViewBag.PlayerList, "Select Player 2", new { @class = "form-control" })
-
-                                <p></p>
-                                @Html.DropDownList("P3", (IEnumerable<SelectListItem>)ViewBag.PlayerList, "Select Player 3", new { @class = "form-control" })
-
-                                <p></p>
-                                @*@Html.TextBox("P4", null, new { @class = "form-control", @placeholder = "Player 2 Username" })*@
-                                @Html.DropDownList("P4", (IEnumerable<SelectListItem>)ViewBag.PlayerList, "Select Player 4", new { @class = "form-control" })
-
-
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div ng-if="name == 16">
-                        <h1>16</h1>
-                        <hr>
-                    </div>
-
-                    <div ng-if="name == 32">
-                        <h1>32</h1>
-                        <hr>
-                    </div>
-
                 </div>
 
-                
+                <div ng-if="name == 8">
+                    <div class="form-group">
+                        <div class="col-md-10">
+
+                            <!-- change the width of player score editor for perhaps by changing width in css or something-->
+                            @*@Html.TextBox("P1", null, new { @class = "form-control", @placeholder = "Player 1 Username" })*@
+                            @Html.DropDownList("P1", (IEnumerable<SelectListItem>)ViewBag.PlayerList, "Select Player 1", new { @class = "form-control" })
+                            <p></p>
+                            @*@Html.TextBox("P2", null, new { @class = "form-control", @placeholder = "Player 2 Username" })*@
+                            @Html.DropDownList("P2", (IEnumerable<SelectListItem>)ViewBag.PlayerList, "Select Player 2", new { @class = "form-control" })
+
+                            <p></p>
+                            @Html.DropDownList("P3", (IEnumerable<SelectListItem>)ViewBag.PlayerList, "Select Player 3", new { @class = "form-control" })
+
+                            <p></p>
+                            @*@Html.TextBox("P4", null, new { @class = "form-control", @placeholder = "Player 2 Username" })*@
+                            @Html.DropDownList("P4", (IEnumerable<SelectListItem>)ViewBag.PlayerList, "Select Player 4", new { @class = "form-control" })
 
 
+
+                        </div>
+                    </div>
+                </div>
+
+                <div ng-if="name == 16">
+                    <h1>16</h1>
+                    <hr>
+                </div>
+
+                <div ng-if="name == 32">
+                    <h1>32</h1>
+                    <hr>
+                </div>
 
             </div>
+
+
+
+
+
         </div>
     </div>
-                    }
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+
+
+}
+
+<div>
+    @Html.ActionLink("Back to Tournaments Page", "Index")
+</div>
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}

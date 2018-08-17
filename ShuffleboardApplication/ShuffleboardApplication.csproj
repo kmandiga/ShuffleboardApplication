@@ -207,6 +207,22 @@
     <Compile Include="Migrations\201808152036134_somemigration.Designer.cs">
       <DependentUpon>201808152036134_somemigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808161633077_loganisadummy.cs" />
+    <Compile Include="Migrations\201808161633077_loganisadummy.Designer.cs">
+      <DependentUpon>201808161633077_loganisadummy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808162055178_whatdidlogando.cs" />
+    <Compile Include="Migrations\201808162055178_whatdidlogando.Designer.cs">
+      <DependentUpon>201808162055178_whatdidlogando.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808162149158_wewilldothat.cs" />
+    <Compile Include="Migrations\201808162149158_wewilldothat.Designer.cs">
+      <DependentUpon>201808162149158_wewilldothat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808171500356_tournamentdatabaseupdate.cs" />
+    <Compile Include="Migrations\201808171500356_tournamentdatabaseupdate.Designer.cs">
+      <DependentUpon>201808171500356_tournamentdatabaseupdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Game.cs" />
     <Compile Include="Models\MyDBContext.cs" />
@@ -308,6 +324,7 @@
     <Content Include="Views\Player\Details.cshtml" />
     <Content Include="Views\Tournament\Index.cshtml" />
     <Content Include="Views\Tournament\Create.cshtml" />
+    <Content Include="Views\Tournament\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -352,6 +369,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808152036134_somemigration.resx">
       <DependentUpon>201808152036134_somemigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808161633077_loganisadummy.resx">
+      <DependentUpon>201808161633077_loganisadummy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808162055178_whatdidlogando.resx">
+      <DependentUpon>201808162055178_whatdidlogando.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808162149158_wewilldothat.resx">
+      <DependentUpon>201808162149158_wewilldothat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808171500356_tournamentdatabaseupdate.resx">
+      <DependentUpon>201808171500356_tournamentdatabaseupdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

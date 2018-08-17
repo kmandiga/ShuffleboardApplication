@@ -144,13 +144,21 @@ namespace ShuffleboardApplication.Controllers
         [HttpPost]
         public JsonResult duplicateUsername(string P2, string P1)
         {
-            bool something = P2.Equals(P1);
-            something = !something;
-            return Json(something);
+            bool dupCheckResult = P2.Equals(P1);
+            dupCheckResult = !dupCheckResult;
+            return Json(dupCheckResult);
             
         }
 
-       
+        [HttpPost]
+        public JsonResult duplicateScore(int P2Score, int P1Score)
+        {
+            bool dupCheckResult = P2Score == P1Score;
+            dupCheckResult = !dupCheckResult;
+            return Json(dupCheckResult);
+
+        }
+
 
 
     }
